@@ -9,7 +9,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ScrollView, Image, TextInput } from 'react-native';
+import { Platform, StyleSheet, Text, View, ScrollView, Image, TextInput, NativeModules, TouchableHighlight } from 'react-native';
 
 
 type Props = {};
@@ -116,12 +116,17 @@ export default class App extends Component<Props> {
             <View style={styles.container}>
 
                 <View style={styles.header}>
-                    <View style={{ flex: 1.5, justifyContent: "center", marginLeft: 10 }}>
-                        <Image
-                            source={require("./images/delete.png")}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    </View>
+                    <TouchableHighlight onPress={() => {
+                        NativeModules.BridgeModule.closeWindow();
+                    }}>
+                        <View style={{ flex: 1.5, justifyContent: "center", marginLeft: 10 }}>
+                            <Image
+                                source={require("./images/delete.png")}
+                                style={{ width: 20, height: 20 }}
+                            />
+                        </View>
+                    </TouchableHighlight>
+                
                     <View style={{ flex: 7, alignItems: "center", justifyContent: "center", background: "#000000" }}>
                         <Text style={{ fontSize: 17 }}>当前城市</Text></View>
                     <View style={{ flex: 1.5 }}></View>
