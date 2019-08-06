@@ -8,10 +8,10 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import Module from "./src"
+import Module from "./src/modules"
 
 
-console.log(Module)
+console.disableYellowBox = false;
 type Props = {};
 export default class App extends Component<Props> {
     render() {
@@ -24,7 +24,6 @@ export default class App extends Component<Props> {
 }
 const styles = StyleSheet.create({
     container:{
-        marginTop:15,
         flex:1
     }
 });
